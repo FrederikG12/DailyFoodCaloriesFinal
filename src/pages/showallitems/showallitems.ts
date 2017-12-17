@@ -69,8 +69,8 @@ export class ShowallitemsPage {
     }
     
     this.foodList = this.foodList.filter((v) => {
-      if(v.id && q) {
-        if (v.id.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+      if(v.item.id && q) {
+        if (v.item.id.toLowerCase().indexOf(q.toLowerCase()) > -1) {
           return true;
         }
         return false;

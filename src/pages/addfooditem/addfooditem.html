@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Nieuw Product</ion-title>
+      </ion-navbar>
+    <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      
+      <link rel="stylesheet" href="assets/css/main.css" />
+      
+    
+    
+  </ion-header>
+
+<ion-content padding class="bill-create"> 
+  <ion-item> 
+    <ion-label stacked>Product</ion-label> 
+    <ion-input [(ngModel)]="productNaam" type="text" placeholder="Wat is de naam van het product?" required></ion-input> 
+  </ion-item> 
+
+  <ion-item> 
+      <ion-label stacked>Calorieën</ion-label> 
+      <ion-input [(ngModel)]="calorien" type="text" placeholder="hoeveel kcal?" required></ion-input> 
+    </ion-item> 
+
+<div >
+  <ion-item> 
+    <ion-label stacked>Hoeveelheid (in gram of cl)</ion-label> 
+    <ion-input [(ngModel)]="hoeveelheid" type="text" placeholder="hoeveel g/cl ?" required></ion-input> 
+  </ion-item> 
+</div>
+
+  <ion-item> 
+      <ion-label stacked>Proteïne (in gram)</ion-label> 
+      <ion-input [(ngModel)]="proteins" type="number" placeholder="hoeveel proteïne?" required></ion-input> 
+  </ion-item>
+
+  <ion-item> 
+      <ion-label stacked>koolhydraten (in gram)</ion-label> 
+      <ion-input [(ngModel)]="koolhydraten" type="number" placeholder="hoeveel koolhydraten?" required></ion-input> 
+  </ion-item>
+
+  <ion-item> 
+      <ion-label stacked>Vetten (in gram)</ion-label> 
+      <ion-input [(ngModel)]="vetten" type="number" placeholder="hoeveel vetten?" required></ion-input> 
+  </ion-item>
+
+<ion-item>
+    <ion-label stacked>barcode</ion-label> 
+  <ion-input type="text" [(ngModel)]="barcode" value="{{barcode}}" readonly></ion-input>
+</ion-item>
+    <input type="button" class="fit" (click)="createFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode)" value="Maak nieuw product aan"/> 
+
+
+</ion-content>

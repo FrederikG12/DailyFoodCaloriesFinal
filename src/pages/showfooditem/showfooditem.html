@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar> 
+    <ion-title>voedselwaar</ion-title> 
+  </ion-navbar> 
+</ion-header> 
+
+<ion-content padding class="fooditem-show"> 
+ <ion-item> 
+   <ion-label stacked>Product</ion-label> 
+   <ion-input [(ngModel)]="productNaam" type="text" value="{{food[0].id}}" required></ion-input> 
+ </ion-item> 
+
+ 
+
+ <ion-item> 
+   <ion-label stacked>Hoeveelheid (in gram of liter)</ion-label> 
+   <ion-input [(ngModel)]="hoeveelheid" type="number" placeholder="hoeveel gram/liter is het product?"></ion-input> 
+ </ion-item> 
+
+ 
+
+ <ion-item> 
+     <ion-label stacked>Proteïne (in gram)</ion-label> 
+     <ion-input [(ngModel)]="proteins" type="number" placeholder="hoeveel proteïne?"></ion-input> 
+ </ion-item>
+
+ <ion-item> 
+     <ion-label stacked>koolhydraten (in gram)</ion-label> 
+     <ion-input [(ngModel)]="koolhydraten" type="number" placeholder="hoeveel koolhydraten?"></ion-input> 
+ </ion-item>
+
+ <ion-item> 
+     <ion-label stacked>Vetten (in gram)</ion-label> 
+     <ion-input [(ngModel)]="vetten" type="number" placeholder="hoeveel vetten?"></ion-input> 
+ </ion-item>
+
+<ion-item>
+ <ion-input type="text" [(ngModel)]="barcode"></ion-input>
+</ion-item>
+
+
+</ion-content>

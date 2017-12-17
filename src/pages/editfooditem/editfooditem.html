@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar> 
+    <ion-title>voedselwaar</ion-title> 
+  </ion-navbar> 
+</ion-header> 
+<link rel="stylesheet" href="assets/css/main.css" />
+
+<ion-content padding class="fooditem-show"> 
+ <ion-item> 
+   <ion-label stacked>Product</ion-label> 
+   <ion-input [(ngModel)]="productNaam" type="text" value="{{fooditem.item.id}}" required></ion-input> 
+ </ion-item> 
+
+ <ion-item> 
+  <ion-label stacked>Kcal</ion-label> 
+  <ion-input [(ngModel)]="calorien" type="text" value="{{fooditem.item.calories}}" required></ion-input> 
+</ion-item> 
+
+ 
+
+ <ion-item> 
+   <ion-label stacked>Hoeveelheid (in gram of liter)</ion-label> 
+   <ion-input [(ngModel)]="hoeveelheid" type="number" value="{{fooditem.item.quantity}}"></ion-input> 
+ </ion-item> 
+ 
+ 
+
+ <ion-item> 
+     <ion-label stacked>Proteïne (in gram)</ion-label> 
+     <ion-input [(ngModel)]="proteins" type="number" value="{{fooditem.item.protein}}"></ion-input> 
+ </ion-item>
+
+ <ion-item> 
+     <ion-label stacked>koolhydraten (in gram)</ion-label> 
+     <ion-input [(ngModel)]="koolhydraten" type="number" value="{{fooditem.item.carbonhydrates}}"></ion-input> 
+ </ion-item>
+
+ <ion-item> 
+     <ion-label stacked>Vetten (in gram)</ion-label> 
+     <ion-input [(ngModel)]="vetten" type="number" value="{{fooditem.item.fats}}"></ion-input> 
+ </ion-item>
+
+<ion-item>
+    <ion-label stacked>Barcode</ion-label> 
+ <ion-input type="text" [(ngModel)]="barcode" value="{{fooditem.path.pieces_[1]}}" readonly disabled></ion-input>
+</ion-item>
+<br/>
+   <input type="button" class="fit" (click)="updateFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode)" value="Update"/>
+   <input type="button" class="fit" (click)="deleteFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode)" value="Delete"/>
+
+</ion-content>

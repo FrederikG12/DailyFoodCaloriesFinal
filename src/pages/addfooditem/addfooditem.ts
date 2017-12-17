@@ -4,6 +4,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 import * as firebase from 'firebase/app';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 
 /**
  * Generated class for the AddfooditemPage page.
@@ -25,7 +26,7 @@ export class AddfooditemPage {
 
   barcode;
 
-  constructor(private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public afDatabase: AngularFireDatabase) {
+  constructor(private toast: ToastController, private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public afDatabase: AngularFireDatabase) {
 
     this.foodList = afDatabase.list('/foods');
     this.barcode = navParams.get('parambarcode');
@@ -49,6 +50,10 @@ export class AddfooditemPage {
       fats: vetten,
       id : productNaam
     }).then (newFood => {
+      this.toast.create({
+        message: productNaam + ' werd aangemaakt!',
+        duration: 3000
+      }).present();
       this.navCtrl.pop();
     }, error => {
       this.alertCtrl.create({ 

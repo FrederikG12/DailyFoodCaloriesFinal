@@ -76,7 +76,7 @@ export class BarcodeScannerPage {
           else
           {
             let confirm = this.alertCtrl.create({
-              title: 'Barcode niet gevonden!',
+              title: 'product niet gevonden in collectie!',
               message: ' Wilt u het product toevoegen aan uw collectie?',
               buttons: [
                 {

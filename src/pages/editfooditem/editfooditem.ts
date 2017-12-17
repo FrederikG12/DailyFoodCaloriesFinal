@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 import * as firebase from 'firebase/app';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 
 /**
  * Generated class for the EditfooditemPage page.
@@ -21,7 +22,7 @@ import { AlertController } from 'ionic-angular/components/alert/alert-controller
 export class EditfooditemPage {
 fooditem;
 foodList: AngularFireList<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afDatabase: AngularFireDatabase, private alertCtrl: AlertController) {
+  constructor(private toast: ToastController, public navCtrl: NavController, public navParams: NavParams, private afDatabase: AngularFireDatabase, private alertCtrl: AlertController) {
     this.fooditem = navParams.get('paramfooditem');
     this.foodList = afDatabase.list('/foods');
   }
@@ -41,6 +42,10 @@ foodList: AngularFireList<any>;
       fats: vetten,
       id : productNaam
     }).then (newFood => {
+      this.toast.create({
+        message: productNaam + ' geüpdate!',
+        duration: 3000
+      }).present();
       this.navCtrl.pop();
     }, error => {
       this.alertCtrl.create({ 

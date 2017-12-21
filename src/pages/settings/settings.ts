@@ -25,19 +25,19 @@ export class SettingsPage {
     console.log('ionViewDidLoad SettingsPage');
   }
 
-  getMicPermission() {
+  getMicPermission() { //microfoon permissie vragen
     this.speech.hasPermission()
       .then((hasPermission: boolean) => {
         if (!hasPermission) {
           this.speech.requestPermission();
-          this.alertCtrl.create({ 
+          this.alertCtrl.create({  //permissie is ok
             title: 'Permissie OK',
             buttons: ['OK'] 
           }).present(); 
         }
         else{
           this.alertCtrl.create({ 
-            title: 'Permissie OK!',
+            title: 'Permissie OK!', //melding dat permissie ok is
             buttons: ['OK'] 
           }).present(); 
         }
@@ -46,16 +46,16 @@ export class SettingsPage {
 
   getCamPermission()
   {
-    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
-      result => this.alertCtrl.create({ 
+    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then( //permissie voor camera
+      result => this.alertCtrl.create({ //toon aan dat het gelukt is
         title: 'Permissie OK!',
         subTitle: result.hasPermission,
         buttons: ['OK'] 
       }).present(),
-      err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
+      err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA) //anders permissie vragen
     );
     
-    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]); //permissie vragen
 
   }
 

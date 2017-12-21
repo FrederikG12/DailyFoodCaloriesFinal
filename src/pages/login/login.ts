@@ -45,7 +45,7 @@ export class LoginPage {
   alertLoggedin(message: string) //alert user
   {
     this.alertCtrl.create({
-      title: 'Daily Food Calories',
+      title: 'Daily Food Calories', 
       subTitle: message,
       buttons: ['OK']
     }).present();
@@ -55,25 +55,25 @@ export class LoginPage {
   {
     console.log('sign in with : ', this.user.value, this.passw.value);
     if (this.user.value != "" && this.passw.value != "")
-    {
+    { //kijken of eerst en vooral niks leeggelaten is
 
     
     this.fire.auth.signInWithEmailAndPassword(this.user.value, this.passw.value)
     .then( data => {
       console.log("got some data", this.fire.auth.currentUser);
       //this.alertLoggedin(this.fire.auth.currentUser.email + ", U bent ingelogd!");
-      this.navCtrl.setRoot( HomePage );
+      this.navCtrl.setRoot( HomePage ); //rootpage zetten op home
     })
     .catch(error => {
-      console.log("got an error", error);
+      console.log("got an error", error); //moest er iets fout gaan, error dit dan
       this.alertLoggedin("Error "+error.message);
-      this.navCtrl.setRoot( LoginPage );
+      this.navCtrl.setRoot( LoginPage ); //rootpage zetten op login
       //this.navCtrl.setRoot(RegisterPage);
     });
   }
   else
   {
-    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.setRoot(LoginPage); //rootpage op login
   }
   }
   
@@ -86,11 +86,11 @@ export class LoginPage {
     if (this.register['email'] != "" && this.register['password'] != "")
     {
       this.fire.auth.createUserWithEmailAndPassword(this.register['email'], this.register['password'])
-      .then( data => {
-          this.navCtrl.setRoot(HomePage);
+      .then( data => { //als firebase email en passwoord goed keurt dan..
+          this.navCtrl.setRoot(HomePage);//rootpage zetten op home
       })
       .catch( error => {
-        this.alertLoggedin("Error :" +error.message);
+        this.alertLoggedin("Error :" +error.message); //anders error, met de error code
       });
     }
     

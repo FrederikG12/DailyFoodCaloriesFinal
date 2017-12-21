@@ -50,21 +50,21 @@ export class ShowallitemsPage {
 
   
 
-  startListening() {
+  startListening() { //spraak om in de collectie te zoeken
     let options = {
-      language: 'nl-BE'
+      language: 'nl-BE' //nederlands zetten
     }
-    this.speech.startListening().subscribe(matches => {
+    this.speech.startListening().subscribe(matches => { //luisteren
       this.speechmatches = matches;
-      this.foodList = this.foodList.filter((v) => {
-        if(v.item.id && matches[0]) {
+      this.foodList = this.foodList.filter((v) => { //in de searchbar zetten
+        if(v.item.id && matches[0]) { 
           if (v.item.id.toLowerCase().indexOf(matches[0].toLowerCase()) > -1) {
             return true;
           }
           return false;
         }
       });
-      this.cd.detectChanges();
+      this.cd.detectChanges(); //DETECTEERT ALS ER IETS VERANDERD!
       
     });
     this.isRecording = true;
@@ -72,12 +72,12 @@ export class ShowallitemsPage {
  
 
 
-  initializeItems(): void {
+  initializeItems(): void { 
     this.foodList = this.loadedFoodList;
   }
  
   getItems(searchbar) { //searchbar werkend
-    //console.log(this.testt[0].pieces_[1]);
+   
     
     // Reset items back to all of the items
     this.initializeItems();
@@ -91,7 +91,7 @@ export class ShowallitemsPage {
       return;
     }
     
-    this.foodList = this.foodList.filter((v) => {
+    this.foodList = this.foodList.filter((v) => { //search
       if(v.item.id && q) {
         if (v.item.id.toLowerCase().indexOf(q.toLowerCase()) > -1) {
           return true;

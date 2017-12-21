@@ -34,7 +34,7 @@ foodList: AngularFireList<any>; //variabelen declareren
   updateFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode) //product updaten
   {
     const newFoodRef: firebase.database.Reference = firebase.database().ref('/foods/' + barcode);
-    newFoodRef.update({
+    newFoodRef.update({ //referentie met barcode als hoofdpuntje
       quantity: hoeveelheid,
       calories: calorien,
       protein: proteins,
@@ -43,13 +43,13 @@ foodList: AngularFireList<any>; //variabelen declareren
       id : productNaam
     }).then (newFood => {
       this.toast.create({
-        message: productNaam + ' geüpdate!',
+        message: productNaam + ' geüpdate!', //melding dat het gelukt is
         duration: 3000
       }).present();
       this.navCtrl.pop();
     }, error => {
       this.alertCtrl.create({ 
-        title: 'Oops! Er ging iets mis!',
+        title: 'Oops! Er ging iets mis!',//melding dat het fout gelopen is
         subTitle: "Error : " + error,
         buttons: ['OK']
       }).present(); 
@@ -58,10 +58,10 @@ foodList: AngularFireList<any>; //variabelen declareren
 
   deleteFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode) //voedsel deleten
   {
-    const newFoodRef: firebase.database.Reference = firebase.database().ref('/foods/' + barcode);
+    const newFoodRef: firebase.database.Reference = firebase.database().ref('/foods/' + barcode); 
     newFoodRef.remove();
     this.toast.create({
-      message: productNaam + ' verwijderd!',
+      message: productNaam + ' verwijderd!', //melding dat het verwijderd is
       duration: 3000
     }).present();
     this.navCtrl.pop();

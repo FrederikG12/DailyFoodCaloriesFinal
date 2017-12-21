@@ -40,22 +40,22 @@ export class AddfooditemPage {
     const newFoodRef: firebase.database.Reference = firebase.database().ref('/foods/' + barcode);
 
     //const personRef: firebase.database.Reference = firebase.database().ref(branch + auth);
-    newFoodRef.set({
+    newFoodRef.set({ //referentie met de barcode als hoofdpuntje
       quantity: hoeveelheid,
       calories: calorien,
       protein: proteins,
       carbonhydrates: koolhydraten,
-      fats: vetten,
+      fats: vetten, //al deze dingen in database opslaan
       id : productNaam
     }).then (newFood => {
       this.toast.create({
-        message: productNaam + ' werd aangemaakt!',
+        message: productNaam + ' werd aangemaakt!', //melding dat het gelukt is
         duration: 3000
       }).present();
       this.navCtrl.pop();
     }, error => {
       this.alertCtrl.create({ 
-        title: 'Oops! Er ging iets mis!',
+        title: 'Oops! Er ging iets mis!', //melding dat er iets fout gegaan is
         subTitle: "Error : " + error,
         buttons: ['OK']
       }).present(); 

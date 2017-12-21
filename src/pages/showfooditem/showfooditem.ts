@@ -19,7 +19,7 @@ export class ShowfooditemPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
 
     this.food = navParams.get('param1'); //parameter ophalen
-    this.alertCtrl.create({ 
+    this.alertCtrl.create({  //alert dat het item al in collectie zit
       title: 'Opgelet!',
       subTitle: "Dit iten zit al in uw collectie. Pas het aan in Collectie via het menu.",
       buttons: ['OK']

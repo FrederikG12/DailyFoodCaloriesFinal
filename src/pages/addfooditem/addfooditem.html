@@ -3,14 +3,14 @@
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Nieuw Product</ion-title>
+        <ion-title>Nieuw product toevoegen</ion-title>
       </ion-navbar>
     <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       
       <link rel="stylesheet" href="assets/css/main.css" />
       
-    
+    <!-- PAGINA OM EEN PRODUCT TOE TE VOEGEN -->
     
   </ion-header>
 
@@ -22,13 +22,13 @@
 
   <ion-item> 
       <ion-label stacked>Calorieën</ion-label> 
-      <ion-input [(ngModel)]="calorien" type="text" placeholder="hoeveel kcal?" required></ion-input> 
+      <ion-input [(ngModel)]="calorien" type="number" placeholder="hoeveel kcal?" required></ion-input> 
     </ion-item> 
 
 <div >
   <ion-item> 
     <ion-label stacked>Hoeveelheid (in gram of cl)</ion-label> 
-    <ion-input [(ngModel)]="hoeveelheid" type="text" placeholder="hoeveel g/cl ?" required></ion-input> 
+    <ion-input [(ngModel)]="hoeveelheid" type="number" placeholder="hoeveel g/cl ?" required></ion-input> 
   </ion-item> 
 </div>
 

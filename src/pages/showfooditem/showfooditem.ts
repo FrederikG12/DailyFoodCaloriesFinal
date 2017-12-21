@@ -18,14 +18,14 @@ export class ShowfooditemPage {
   food;
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
 
-    this.food = navParams.get('param1');
-    
-    
-    this.alertCtrl.create({
-      title: 'object ...',
-      subTitle: this.food[0].name + 'test2',
+    this.food = navParams.get('param1'); //parameter ophalen
+    this.alertCtrl.create({ 
+      title: 'Opgelet!',
+      subTitle: "Dit iten zit al in uw collectie. Pas het aan in Collectie via het menu.",
       buttons: ['OK']
     }).present(); 
+    
+    
     console.log(this.food);
   }
 

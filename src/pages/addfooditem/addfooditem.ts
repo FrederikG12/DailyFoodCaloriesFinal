@@ -21,22 +21,20 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 export class AddfooditemPage {
 
   foodList: AngularFireList<any>;
-  tablenames;
-  singelitem;
 
-  barcode;
+  barcode; // variabelen instantieren
 
   constructor(private toast: ToastController, private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public afDatabase: AngularFireDatabase) {
 
-    this.foodList = afDatabase.list('/foods');
-    this.barcode = navParams.get('parambarcode');
+    this.foodList = afDatabase.list('/foods'); //connectie maken met database met /foods waar de barcodes inzitten
+    this.barcode = navParams.get('parambarcode'); //parameter ophalen
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddfooditemPage');
   }
 
-  createFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode)
+  createFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode) //product in database toevoegen
   {
     
     const newFoodRef: firebase.database.Reference = firebase.database().ref('/foods/' + barcode);

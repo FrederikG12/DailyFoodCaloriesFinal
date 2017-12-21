@@ -22,6 +22,8 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 import { ShowfooditemPage } from '../pages/showfooditem/showfooditem';
 import { ShowallitemsPage } from '../pages/showallitems/showallitems';
 import { EditfooditemPage } from '../pages/editfooditem/editfooditem';
+import { SettingsPage } from '../pages/settings/settings';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 
 
 
@@ -45,7 +47,8 @@ const FireBaseAuth = {
     AddfooditemPage,
     ShowfooditemPage,
     ShowallitemsPage,
-    EditfooditemPage
+    EditfooditemPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ const FireBaseAuth = {
     AddfooditemPage,
     ShowfooditemPage,
     ShowallitemsPage,
-    EditfooditemPage
+    EditfooditemPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,
@@ -76,7 +80,8 @@ const FireBaseAuth = {
     SpeechRecognition,
     AngularFireDatabase,
     Network,
-    ToastController
+    ToastController,
+    AndroidPermissions
   ]
 })
 export class AppModule {}

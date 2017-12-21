@@ -21,17 +21,17 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 })
 export class EditfooditemPage {
 fooditem;
-foodList: AngularFireList<any>;
+foodList: AngularFireList<any>; //variabelen declareren
   constructor(private toast: ToastController, public navCtrl: NavController, public navParams: NavParams, private afDatabase: AngularFireDatabase, private alertCtrl: AlertController) {
-    this.fooditem = navParams.get('paramfooditem');
-    this.foodList = afDatabase.list('/foods');
+    this.fooditem = navParams.get('paramfooditem'); //parameter navigatie opvragen
+    this.foodList = afDatabase.list('/foods'); //database connectie met /foods
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditfooditemPage');
   }
 
-  updateFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode)
+  updateFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode) //product updaten
   {
     const newFoodRef: firebase.database.Reference = firebase.database().ref('/foods/' + barcode);
     newFoodRef.update({
@@ -56,11 +56,16 @@ foodList: AngularFireList<any>;
     });
   }
 
-  deleteFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode)
+  deleteFood(productNaam, calorien, hoeveelheid, proteins, koolhydraten, vetten, barcode) //voedsel deleten
   {
     const newFoodRef: firebase.database.Reference = firebase.database().ref('/foods/' + barcode);
     newFoodRef.remove();
+    this.toast.create({
+      message: productNaam + ' verwijderd!',
+      duration: 3000
+    }).present();
     this.navCtrl.pop();
+    
   }
 
 }

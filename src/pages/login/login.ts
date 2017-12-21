@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { ViewChild } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../home/home';
-import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,13 +20,13 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 export class LoginPage {
 
 
-  @ViewChild('username') user;
+  @ViewChild('username') user; //waarden van input velden ophalen
   @ViewChild('password') passw;
 
 
 
   
-  constructor(private toast: ToastController, private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
 
   }
 
@@ -44,7 +42,7 @@ export class LoginPage {
     
   }
 
-  alertLoggedin(message: string)
+  alertLoggedin(message: string) //alert user
   {
     this.alertCtrl.create({
       title: 'Daily Food Calories',
@@ -53,7 +51,7 @@ export class LoginPage {
     }).present();
   }
 
-  Login()
+  Login() //user inloggen
   {
     console.log('sign in with : ', this.user.value, this.passw.value);
     if (this.user.value != "" && this.passw.value != "")
@@ -81,7 +79,7 @@ export class LoginPage {
   
   register ={};
   
-  registerForm()
+  registerForm() //user registreren
   {
     
     console.log(this.register['email']);

@@ -11,6 +11,7 @@ import { ShowallitemsPage } from '../pages/showallitems/showallitems';
 import { AddfooditemPage } from '../pages/addfooditem/addfooditem';
 import { Network } from '@ionic-native/network';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,15 +28,16 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
-    this.pages = [
+    this.pages = [ //PAGINAS IN HET MENU
       { title: 'Home', component: HomePage },
       { title: 'Barcode Scanner', component: BarcodeScannerPage },
-      { title: 'Collectie', component: ShowallitemsPage }
+      { title: 'Collectie', component: ShowallitemsPage },
+      { title: 'Settings', component: SettingsPage} 
       
     ];
     
     this.activePage = this.pages[0];
-
+ // KIJK OF ER EEN GEBRUIKER INGELOGD IS, EN EEN SESSIE BEWAREN
     const authObserver = afAuth.authState.subscribe( user => {
       if (user) {
         this.rootPage = HomePage;
@@ -49,7 +51,7 @@ export class MyApp {
   }
 
 
-  DisplayNetworkUpdate(connectionState: String)
+  DisplayNetworkUpdate(connectionState: String) //TOAST WANNEER ER EEN INTERNETCONNECTIE VERANERD
   {
     let networkType = this.network.type;
     if (networkType == "none")

@@ -14,24 +14,24 @@
 
  <ion-item> 
    <ion-label stacked>Hoeveelheid (in gram of liter)</ion-label> 
-   <ion-input [(ngModel)]="hoeveelheid" type="number" placeholder="hoeveel gram/liter is het product?"></ion-input> 
+   <ion-input [(ngModel)]="hoeveelheid" type="number" value="{{food[0].quantity}}"></ion-input> 
  </ion-item> 
 
  
 
  <ion-item> 
      <ion-label stacked>Proteïne (in gram)</ion-label> 
-     <ion-input [(ngModel)]="proteins" type="number" placeholder="hoeveel proteïne?"></ion-input> 
+     <ion-input [(ngModel)]="proteins" type="number" value="{{food[0].protein}}"></ion-input> 
  </ion-item>
 
  <ion-item> 
      <ion-label stacked>koolhydraten (in gram)</ion-label> 
-     <ion-input [(ngModel)]="koolhydraten" type="number" placeholder="hoeveel koolhydraten?"></ion-input> 
+     <ion-input [(ngModel)]="koolhydraten" type="number" value="{{food[0].carbonhydrates}}"></ion-input> 
  </ion-item>
 
  <ion-item> 
      <ion-label stacked>Vetten (in gram)</ion-label> 
-     <ion-input [(ngModel)]="vetten" type="number" placeholder="hoeveel vetten?"></ion-input> 
+     <ion-input [(ngModel)]="vetten" type="number" value="{{food[0].fats}}"></ion-input> 
  </ion-item>
 
 <ion-item>
